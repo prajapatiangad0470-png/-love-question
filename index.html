@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do You Love Me? ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 380px;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .heart {
+      font-size: 65px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    h1 {
+      color: #ff3f68;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #ffd0da;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #ff3f68;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff3f68;
+      min-height: 28px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Do you love me?</h1>
+
+    <input
+      id="answer"
+      type="text"
+      placeholder="Type your answer..."
+      autocomplete="off"
+    >
+
+    <button onclick="checkAnswer()">Submit ❤️</button>
+
+    <div id="message"></div>
+
+  </div>
+
+  <script>
+    const input = document.getElementById("answer");
+    const message = document.getElementById("message");
+
+    function checkAnswer() {
+
+      const answer = input.value.trim().toLowerCase();
+
+      if (answer === "yes") {
+
+        message.innerHTML = "Me too ❤️🥰";
+
+      } else {
+
+        message.innerHTML = "Think again 🤔❤️";
+
+        setTimeout(() => {
+          message.innerHTML = "";
+          input.value = "";
+          input.focus();
+        }, 1200);
+      }
+    }
+
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        checkAnswer();
+      }
+    });
+  </script>
+
+</body>
+  </html>
